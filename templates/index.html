@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MNIST Digit Classifier</title>
+</head>
+<body>
+    <h1>MNIST Digit Classifier</h1>
+
+    <p>Upload an image of a handwritten digit.</p>
+
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <br><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction is defined %}
+        <h2>Prediction: {{ prediction }}</h2>
+
+        {% if confidence is defined %}
+            <h3>Confidence: {{ confidence }}%</h3>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
